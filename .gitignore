@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.env
+
+# Node.js
+node_modules/
+dist/
+.env
+
+# Logfiles
+*.log
+
+# Betriebssystem-/Editor-spezifische Dateien
+.DS_Store
+*.swp
+.idea/
+.vscode/
