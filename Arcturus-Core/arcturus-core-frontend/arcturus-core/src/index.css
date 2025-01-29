@@ -4,7 +4,7 @@
 
 /* Custom styles can be added here */
 body {
-  @apply bg-gray-900 text-white;
+  @apply bg-background text-text;
 }
 
 h1, h2 {

@@ -1,45 +1,35 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import About from './components/About';
+import ServerInfo from './components/ServerInfo';
+import Community from './components/Community';
+import Quests from './components/Quests';
+import Leaderboard from './components/Leaderboard';
+import Shop from './components/Shop';
+import Support from './components/Support';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
-      <div className="max-w-md text-center">
-        <h1 className="text-4xl font-bold">Welcome to Arcturus</h1>
-        <p className="mt-4 text-lg">Your journey begins here.</p>
-        <div className="mt-6">
-          <button
-            className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105"
-            onClick={() => setCount(count + 1)}
-          >
-            Click Me
-          </button>
-          <p className="mt-2">You've clicked {count} times.</p>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold">Arcturus Discord Bot</h2>
-          <p className="mt-2 text-lg">Join our Discord server and interact with our custom bot!</p>
-          <a
-            href="https://discord.gg/your-invite-link"
-            className="mt-4 inline-block rounded-lg bg-green-600 px-4 py-2 text-white hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105"
-          >
-            Join Discord
-          </a>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold">Arcturus Minecraft Server</h2>
-          <p className="mt-2 text-lg">Join our Minecraft server and start your adventure!</p>
-          <p className="mt-2 text-lg">Server IP: play.arcturus-mc.com</p>
-          <button
-            className="mt-4 rounded-lg bg-yellow-600 px-4 py-2 text-white hover:bg-yellow-700 transition duration-300 ease-in-out transform hover:scale-105"
-            onClick={() => alert('Connecting to Minecraft Server...')}
-          >
-            Connect to Server
-          </button>
-        </div>
+    <Router>
+      <div className="flex flex-col min-h-screen bg-gray-900 text-white">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/server-info" element={<ServerInfo />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/quests" element={<Quests />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/support" element={<Support />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 
